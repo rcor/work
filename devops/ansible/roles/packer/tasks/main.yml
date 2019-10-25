@@ -1,0 +1,6 @@
+---
+# tasks file for base
+  - name: "Update cache"
+    apt:
+      cache_valid_time: "{{ base_cache_valid_time | int }}"
+      update_cache: true

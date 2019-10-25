@@ -1,0 +1,16 @@
+---
+# tasks file for base
+- name: "Update cache"
+  apt:
+    cache_valid_time: "{{ base_cache_valid_time | int }}"
+    update_cache: true
+
+- name: "install python3-apt"
+  command: "apt-get install python3-apt -y"
+
+- name: "install pip3"
+  apt:
+    name: pip3
+
+- name: "install awscli"
+  
