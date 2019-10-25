@@ -13,4 +13,12 @@
     name: pip3
 
 - name: "install awscli"
-  
+  command: "pip3 install awscli --upgrade --user"
+
+- name: "update bashrc"
+  lineinfile:
+    path: "~/.bashrc"
+    line: "export PATH=\"$PATH:~/.local/bin/\""
+
+- name: "reload bashrc"
+  command: "source ~/.bashrc"
