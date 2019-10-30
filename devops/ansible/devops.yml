@@ -1,7 +1,6 @@
 ---
 - hosts: all
-  become: true
   roles:
     - awscli
-  #  - terraform
-  #  - packer
+    - terraform
+    - packer

@@ -1,24 +1,27 @@
 ---
 # tasks file for base
 - name: "Update cache"
+  become: true
   apt:
     cache_valid_time: "{{ base_cache_valid_time | int }}"
     update_cache: true
 
-- name: "install python3-apt"
-  command: "apt-get install python3-apt -y"
+- name: "install python-apt"
+  become: true
+  command: "apt-get install python-apt -y"
 
-- name: "install pip3"
+- name: "install pip"
+  become: true
   apt:
-    name: pip3
+    name: python-pip
 
 - name: "install awscli"
-  command: "pip3 install awscli --upgrade --user"
+  command: "pip install awscli --upgrade --user"
 
-- name: "update bashrc"
-  lineinfile:
-    path: "~/.bashrc"
-    line: "export PATH=\"$PATH:~/.local/bin/\""
+#- name: "update bashrc"
+#  lineinfile:
+#    path: "/home/vagrant/.bashrc"
+#    line: "export PATH=\"$PATH:~/.local/bin/\""
 
-- name: "reload bashrc"
-  command: "source ~/.bashrc"
+#- name: "reload bashrc"
+#  command: "source /home/vagrant/.bashrc"
