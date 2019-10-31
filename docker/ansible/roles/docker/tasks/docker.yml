@@ -21,7 +21,11 @@
   apt:
     name: "docker.io"
     state: present
-
+- name: "add {{ docker_user }} user to docker group"
+  user:
+    name: "{{ docker_user}}"
+    groups: "{{ docker_group }}"
+    append: yes
 #- name: Enable service docker
 #  service:
 #    name: docker
