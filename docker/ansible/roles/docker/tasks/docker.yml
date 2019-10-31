@@ -1,0 +1,28 @@
+---
+# tasks file for base
+
+- name: "install python-apt"
+  become: true
+  command: "apt-get install python-apt -y"
+
+- name: "remove docker packages"
+  become: true
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+      - docker
+      - docker-engine
+      - docker.io
+
+- name: "install docker.io"
+  become: true
+  apt:
+    name: "docker.io"
+    state: present
+
+#- name: Enable service docker
+#  service:
+#    name: docker
+#    enabled: yes

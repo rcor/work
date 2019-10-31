@@ -1,0 +1,10 @@
+---
+- name: "download minikube"
+  become: true
+  command: "curl -L https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 -o /usr/local/bin/minikube"
+
+- name: "set up minidocker"
+  become: true
+  file:
+    name: /usr/local/bin/minikube
+    mode: "a+x"

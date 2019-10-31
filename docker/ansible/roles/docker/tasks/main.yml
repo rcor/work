@@ -1,0 +1,10 @@
+
+- name: "Update cache"
+  become: true
+  apt:
+    cache_valid_time: "{{ base_cache_valid_time | int }}"
+    update_cache: true
+    
+- include: docker.yml
+- include: composer.yml
+- include: minikube.yml
