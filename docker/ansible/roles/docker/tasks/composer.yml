@@ -1,10 +1,9 @@
----
-- name: "download minikube"
+- name: "download composer"
   become: true
-  command: "curl -L https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 -o /usr/local/bin/minikube"
+  command: "curl -L https://github.com/docker/compose/releases/download/{{ docker_composer_version }}/docker-compose-'uname -s'-'uname -m' -o /usr/local/bin/docker-compose"
 
-- name: "set up minidocker"
+- name: "set up composer"
   become: true
   file:
-    name: /usr/local/bin/minikube
+    name: /usr/local/bin/docker-compose
     mode: "a+x"

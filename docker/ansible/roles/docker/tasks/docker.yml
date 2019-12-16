@@ -22,6 +22,7 @@
     name: "docker.io"
     state: present
 - name: "add {{ docker_user }} user to docker group"
+  become: true
   user:
     name: "{{ docker_user}}"
     groups: "{{ docker_group }}"

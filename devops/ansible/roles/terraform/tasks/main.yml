@@ -1,6 +1,23 @@
 ---
 # tasks file for base
-  - name: "Update cache"
-    apt:
-      cache_valid_time: "{{ base_cache_valid_time | int }}"
-      update_cache: true
+- name: 'Update cache'
+  apt:
+   cache_valid_time: '{{ base_cache_valid_time | int }}'
+   update_cache: true
+
+- name: 'install zip'
+  apt:
+    name: zip
+    state: present
+
+- name: 'Download and unzip terraform'
+  unarchive:
+    src: 'https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip'
+    dest: /usr/local/bin/
+    remote_src: yes
+
+- name: 'set up terraform'
+  become: true
+  file:
+    name: /usr/local/bin/terraform
+    mode: a+x
