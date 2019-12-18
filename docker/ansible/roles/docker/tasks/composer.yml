@@ -1,6 +1,7 @@
 - name: "Install pip"
+  become: true
   apt:
-    name: "pip"
+    name: "python-pip"
     state: present
 - name: "Download composer"
   become: true
