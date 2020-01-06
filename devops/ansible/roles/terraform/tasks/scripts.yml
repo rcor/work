@@ -1,0 +1,7 @@
+- name: Copy SH files
+  copy:
+   src: 'terraform_create_project.sh'
+   dest: '/home/{{ terraform_user }}/.local/bin/terraform_create_project.sh'
+   owner: '{{ terraform_group }}'
+   group: '{{ terraform_user }}'
+   mode: '0755'
