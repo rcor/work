@@ -1,6 +1,9 @@
-
-
-- name: "Download and install composer"
+- name: "Install pip"
+  become: true
+  apt:
+    name: "python-pip"
+    state: present
+- name: "Download composer"
   become: true
   get_url:
     url: https://github.com/docker/compose/releases/download/{{ composer_version }}/docker-compose-{{ composer_os}}-{{ composer_arq }}

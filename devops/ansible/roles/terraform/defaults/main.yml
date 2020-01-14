@@ -2,3 +2,5 @@
 # defaults file for base
 base_cache_valid_time: 3600
 terraform_version: "0.12.7"
+terraform_user: "vagrant"
+terraform_group: "vagrant"
