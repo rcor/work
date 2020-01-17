@@ -1,6 +1,8 @@
 ---
 # defaults file for role
-docker_composer_version: 1.24.1
+composer_version: 1.24.1
+composer_os: "Linux"
+composer_arq: "x86_64"
 base_cache_valid_time: 3600
 docker_user: "vagrant"
 docker_group: "docker"

@@ -5,4 +5,7 @@
     state: present
 - name: "Download composer"
   become: true
-  command: "pip install docker-compose"
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ composer_version }}/docker-compose-{{ composer_os}}-{{ composer_arq }}
+    dest: /usr/local/bin/docker-compose
+    mode: "+x"
