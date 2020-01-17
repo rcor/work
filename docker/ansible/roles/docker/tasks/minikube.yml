@@ -1,10 +1,17 @@
 ---
 - name: "download minikube"
   become: true
-  command: "curl -L https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 -o /usr/local/bin/minikube"
+  command: "curl -L https://storage.googleapis.com/minikube/releahttps://storage.googleapis.com/kubernetes-release/release/v1.17.0/bin/linux/amd64/kubectlses/latest/minikube-linux-amd64 -o /usr/local/bin/minikube"
 
 - name: "set up minidocker"
   become: true
   file:
     name: /usr/local/bin/minikube
+    mode: "a+x"
+
+- name: "download and install kubectl version {{docker_kubctl_version}}"
+  become: true
+  get_url:
+    url: "https://storage.googleapis.com/kubernetes-release/release/{{ docker_kubctl_version }}/bin/linux/amd64/kubectl"
+    dest: "/usr/local/bin/kubectl"
     mode: "a+x"

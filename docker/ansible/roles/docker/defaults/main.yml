@@ -4,3 +4,4 @@ docker_composer_version: 1.24.1
 base_cache_valid_time: 3600
 docker_user: "vagrant"
 docker_group: "docker"
+docker_kubctl_version: "v1.17.0"
