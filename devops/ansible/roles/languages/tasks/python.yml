@@ -1,0 +1,25 @@
+---
+# tasks file for base
+  - name: "Update cache"
+    apt:
+      cache_valid_time: "{{ base_cache_valid_time | int }}"
+      update_cache: true
+
+  - name: "install python-apt"
+    become: true
+    command: "pip3 install virtualenvwrapper"
+
+  - name: Creates directory
+    file:
+      path: /home/vagrant/.virtualenvs
+      state: directory
+      owner: vagrant
+
+
+  - name: Add lines to .bashrc
+    blockinfile:
+      path: /home/vagrant/.bashrc
+      block: |
+        export WORKON_HOME=$HOME/.virtualenvs
+        VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+        . /usr/local/bin/virtualenvwrapper.sh

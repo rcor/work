@@ -4,3 +4,5 @@
     - awscli
     - terraform
     - packer
+    - docker
+    - language

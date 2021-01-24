@@ -1,0 +1,3 @@
+- name: "install golang"
+  become: true
+  command: "apt-get install golang -y"

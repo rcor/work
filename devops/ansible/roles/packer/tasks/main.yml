@@ -4,3 +4,22 @@
     apt:
       cache_valid_time: "{{ base_cache_valid_time | int }}"
       update_cache: true
+
+  - name: 'install zip'
+    become: true
+    apt:
+      name: zip
+      state: present
+
+  - name: 'Download and unzip packer'
+    become: true
+    unarchive:
+      src: 'https://releases.hashicorp.com/packer/${packer_version}/packer_${packer_version}_linux_amd64.zip'
+      dest: /usr/local/bin/
+      remote_src: yes
+
+  - name: 'set up packer'
+    become: true
+    file:
+      name: /usr/local/bin/packer
+      mode: a+x

@@ -8,16 +8,12 @@
 2. Packer
 3. Terraform
 4. awscli
-
-### Docker
-1. Docker
-2. Docker Compose
-3. minikube
+5. Golang
+6. Python3
+ * virtualenvwrapper
+ * pip
 
 ###
-## Author
-
-[github.com/rcor](https://github.com/rcor)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
