@@ -5,7 +5,7 @@
       cache_valid_time: "{{ base_cache_valid_time | int }}"
       update_cache: true
 
-  - name: "install python-apt"
+  - name: "install python env"
     become: true
     command: "pip3 install virtualenvwrapper"
 

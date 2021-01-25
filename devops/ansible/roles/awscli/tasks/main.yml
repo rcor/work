@@ -13,10 +13,10 @@
 - name: "install pip"
   become: true
   apt:
-    name: python-pip
+    name: python3-pip
 
 - name: "install awscli"
-  command: "pip install awscli --upgrade --user"
+  command: "pip3 install awscli --upgrade --user"
 
 #- name: "update bashrc"
 #  lineinfile:
